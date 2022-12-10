@@ -33,17 +33,23 @@ def Movies3(genero:str):
         return tuple(my_list)
     return filtrar_genero
 
+"""
+Funcion que recibe y retorna una tupla de tuplas, donde:
+    Si se ingresa "Excelente", se mostraran las peliculas con "Movie Rating">=9
+    Si se ingresa "Buena", se mostraran las peliculas con "Movie Rating">=6 y "Movie Rating"<9
+    Si se ingresa "Mala", se mostraran las peliculas con "Movie Rating" menor a 6
+"""
 def Movies4(tupla:tuple):
     list1 = [i for i in tupla if float(i[3])>=9.0]
     list2 = [i for i in tupla if float(i[3])>=6.0 and float(i[3])<9.0]
     list3 = [i for i in tupla if float(i[3])<6.0]
     def agregar_recomendacion(palabra:str)->list:
         if palabra == 'Excelente':
-            return list1
+            return tuple(list1)
         if palabra == 'Buena':
-            return list2
+            return tuple(list2)
         if palabra == 'Mala':
-            return list3
+            return tuple(list3)
     return agregar_recomendacion
 
 
@@ -57,7 +63,7 @@ if __name__ == '__main__':
     #my_fun = Movies3('Drama,Romance')
     #print(my_fun(my_tuple))
 
-    #my_fun = Movies4(my_tuple)
+    my_fun = Movies4(my_tuple)
     #print(my_fun('Excelente'))
     #print(my_fun('Buena'))
     #print(my_fun('Mala'))
