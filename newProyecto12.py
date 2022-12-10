@@ -63,7 +63,7 @@ if __name__ == '__main__':
     #my_fun = Movies3('Drama,Romance')
     #print(my_fun(my_tuple))
 
-    my_fun = Movies4(my_tuple)
+    #my_fun = Movies4(my_tuple)
     #print(my_fun('Excelente'))
     #print(my_fun('Buena'))
     #print(my_fun('Mala'))
