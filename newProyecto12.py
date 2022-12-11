@@ -52,6 +52,47 @@ def Movies4(tupla:tuple):
             return tuple(list3)
     return agregar_recomendacion
 
+# Funcion que recibe y retorna una tupla de tuplas donde se filtra las peliculas que sean del genero Action,Adventure,Drama
+def Movies5(tupla: tuple)-> tuple:
+    my_list = filter(lambda x: x[2]=="Action,Adventure,Drama", tupla)
+    return tuple(my_list)
+
+#Funcion que recibe una tupla de tuplas de todas las peliculas del genero 'Animation,Adventure,Comedy'
+# y ademas sean Clasificacion C, y al final retorne las tuplas ordenadas por nombre ascendente
+def Movies6(tupla: tuple)-> tuple:
+    my_list1 = filter(lambda x: x[2]=="Animation,Adventure,Comedy" and x[6]=="C" , tupla)
+    my_list = sorted(my_list1, key = lambda x: x[0])
+    return tuple(my_list)
+
+# Funcion que recibe y retorna una tupla de tuplas de todas las peliculas donde el rating sea mayor o igual\
+# al que se le manda y ademas el año sea mayor o igual al mandado
+def Movies7(rating:str, anio: str):
+    def filtrar_pelicula(tupla:tuple)->tuple:
+        my_list = [i for i in tupla if i[3]>=rating and i[1]>=anio]
+        return tuple(my_list)
+    return filtrar_pelicula
+
+# Funcion que recibe y retorna una tupla de tuplas
+# donde si al seleccionar la opcion 1 del menu devuelve las peliculas que salieron del 2010 en adelante y clasificacion "A"
+# si selecciona la opcion 2 devuelve las peliculas con rating mejor o igual que 6 y del genero  "Action,Adventure,Fantasy"
+def Movies8(tupla: tuple):
+    list1 = [i for i in tupla if i[1]>="2010" and i[6]=="A"]
+    list2 = [i for i in tupla if i[3]>="6" and i[2]=="Action,Adventure,Fantasy"]
+    def ordena_por():
+        menu = """
+             1. Peliculas por año y clasificacion
+             2. Peliculas por Rating mejor que 6 y genero "Action,Adventure,Fantasy"
+            """
+        print(menu)
+        opt = int(input("Ingresar opcion: "))
+
+        if opt == 1:
+            return tuple(list1)
+
+        if opt == 2:
+            return tuple(list2)
+    return ordena_por
+
 
 if __name__ == '__main__':
     my_tuple = read_csv('./movies.csv')
@@ -67,3 +108,12 @@ if __name__ == '__main__':
     #print(my_fun('Excelente'))
     #print(my_fun('Buena'))
     #print(my_fun('Mala'))
+
+    # print(Movies5(my_tuple))
+    # print(Movies6(my_tuple))
+
+    # my_fun = Movies7("8.5","2000")
+    # print(my_fun(my_tuple))
+
+    # my_fun = Movies8(my_tuple)
+    # print(my_fun())
