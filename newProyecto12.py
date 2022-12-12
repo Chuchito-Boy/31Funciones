@@ -53,19 +53,19 @@ def Movies4(tupla:tuple):
             return tuple(list3)
     return agregar_recomendacion
 
-# Funcion que recibe y retorna una tupla de tuplas donde se filtra las peliculas que sean del genero 'Action,Adventure,Drama'
+# Funcion que recibe y retorna una tupla de tuplas donde se filtra las peliculas que sean del genero Action,Adventure,Drama
 def Movies5(tupla: tuple)-> tuple:
     my_list = filter(lambda x: x[2]=="Action,Adventure,Drama", tupla)
     return tuple(my_list)
 
-# Funcion que recibe una tupla de tuplas de todas las peliculas del genero 'Animation,Adventure,Comedy'
-# ademas sean Clasificacion C, y al final retorne las tuplas ordenadas por nombre ASCENDENTE
+#Funcion que recibe una tupla de tuplas de todas las peliculas del genero 'Animation,Adventure,Comedy'
+# y ademas sean Clasificacion C, y al final retorne las tuplas ordenadas por nombre ascendente
 def Movies6(tupla: tuple)-> tuple:
     my_list1 = filter(lambda x: x[2]=="Animation,Adventure,Comedy" and x[6]=="C" , tupla)
     my_list = sorted(my_list1, key = lambda x: x[0])
     return tuple(my_list)
 
-# Funcion que recibe y retorna una tupla de tuplas de todas las peliculas donde el rating sea mayor o igual
+# Funcion que recibe y retorna una tupla de tuplas de todas las peliculas donde el rating sea mayor o igual\
 # al que se le manda y ademas el año sea mayor o igual al mandado
 def Movies7(rating:str, anio: str):
     def filtrar_pelicula(tupla:tuple)->tuple:
@@ -133,7 +133,6 @@ if __name__ == '__main__':
     #print(my_fun('Mala'))
 
     # print(Movies5(my_tuple))
-
     # print(Movies6(my_tuple))
 
     # my_fun = Movies7("8.5","2000")
