@@ -123,7 +123,7 @@ def Movies10(tupla:tuple):
 if __name__ == '__main__':
     my_tuple = read_csv('./Movies.csv')
 
-    # print(Movies1(my_tuple))
+    print(Movies1(my_tuple))
 
     # print(Movies2(my_tuple))
 
